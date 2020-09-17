@@ -2,7 +2,9 @@ package model;
 
 import model.BurgerSale;
 
-public class Burger implements BurgerSale {
+import java.io.Serializable;
+
+public class Burger implements Serializable {
     // properties for bun, pickles, numPatties, Cheese
     private String burgerName;
 
@@ -19,6 +21,8 @@ public class Burger implements BurgerSale {
     private int numPatties;
     private boolean cheese; // true or false
 
+    public Burger() {}
+
     // constructor
     public Burger(String burgerName, int numberBuns, int numberPickles, int numberPatties, boolean hasCheese) {
         // set each of the local class properties, to the arguments passed into this constructor
@@ -29,14 +33,14 @@ public class Burger implements BurgerSale {
         cheese = hasCheese;
     }
 
-    @Override
-    public String burgerHasCheese() {
-        if (this.cheese) {
-            return "This " + this.burgerName + " has cheese.";
-        } else {
-            return "This " + this.burgerName + " sadly has no cheese.";
-        }
-    }
+//    @Override
+//    public String burgerHasCheese() {
+//        if (this.cheese) {
+//            return "This " + this.burgerName + " has cheese.";
+//        } else {
+//            return "This " + this.burgerName + " sadly has no cheese.";
+//        }
+//    }
 
     // public Burger(int numBuns, int numPickles, int numPatties, boolean cheese) {
     //     this.numBuns = numBuns;
