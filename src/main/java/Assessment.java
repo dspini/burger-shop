@@ -2,6 +2,7 @@ import java.util.HashMap;
 import model.Burger;
 import model.DaoFactory;
 import model.Ingredient;
+import model.Soda;
 
 public class Assessment {
     // Have a Burger Class - properties of condiments - print out a statement about deliciousness factor
@@ -10,12 +11,43 @@ public class Assessment {
 
         // showing the connection of the DaoFactory to all of our other model stuff
         // Let's say we wanted to find the burger with ID 5
-        Burger burgerFive = DaoFactory.getBurgersDao().findById(5L);
+        // Burger burgerFive = DaoFactory.getBurgersDao().findById(5L);
+        //
+        // Ingredient tomatoes = DaoFactory.getIngredientsDao().findById(5L);
 
-        Ingredient tomatoes = DaoFactory.getIngredientsDao().findById(5L);
+        // Ingredient qpPickles = new Ingredient("Quarter Pounder Pickles", 3);
+        // long resultIngredientID = DaoFactory.getIngredientsDao().createIngredient(qpPickles);
 
-        Ingredient qpPickles = new Ingredient("Quarter Pounder Pickles", 3);
-        long resultIngredientID = DaoFactory.getIngredientsDao().createIngredient(qpPickles);
+        // test Soda functionality
+        // create
+        long sodaId = DaoFactory.getSodasDao().createSoda(new Soda("Coca-Cola", 3));
+
+        // find by id
+        Soda cocaCola = DaoFactory.getSodasDao().findById(1L);
+
+        String cokeName = cocaCola.getName();
+        int cokeSize = cocaCola.getQuantity();
+
+
+
+        String cokeSizeString;
+        switch (cokeSize) {
+            case 1:
+                cokeSizeString = "Small";
+                break;
+            case 2:
+                cokeSizeString = "Medium";
+                break;
+            case 3:
+                cokeSizeString = "SuperSize";
+                break;
+            default:
+                cokeSizeString = "Huh?";
+        }
+
+        System.out.println(cokeName);
+        System.out.println(cokeSizeString);
+
 
         // test making a burger
         Burger bigMac = new Burger("Big Mac", 3, 7, 2, true);
@@ -23,10 +55,10 @@ public class Assessment {
         long resultId = DaoFactory.getBurgersDao().createBurger(bigMac);
 
         System.out.println(bigMac.getNumPickles());
-        System.out.println(bigMac.burgerHasCheese());
+        // System.out.println(bigMac.burgerHasCheese());
 
         Burger homestyle = new Burger("Homestyle", 2, 3, 1, false);
-        System.out.println(homestyle.burgerHasCheese());
+        // System.out.println(homestyle.burgerHasCheese());
 
         System.out.println("The area of a rectangle with side 1: 5, and side 2: 7 is equal to: " + getArea(5, 7));
         // Make a hash map of burgers where the key => value relationship is 'burgerName' => Burger()
