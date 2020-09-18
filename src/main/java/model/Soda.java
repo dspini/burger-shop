@@ -2,19 +2,22 @@ package model;
 
 import java.io.Serializable;
 
-public class Soda {
-
+// This is a Bean.  (called Soda)
+public class Soda implements Serializable {
     private long id;
     private String name;
-    private int quantity;
+    private int quantity; // could be 1 = small, 2 = medium, 3 = large
 
-    public Soda() { }
+    // zero-arg constructor
+    public Soda() {}
 
+    // constructor with everything except ID
     public Soda(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
     }
 
+    // Getters and Setters
     public long getId() {
         return id;
     }
