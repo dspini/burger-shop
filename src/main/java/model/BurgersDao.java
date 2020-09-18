@@ -10,6 +10,17 @@ public class BurgersDao implements Burgers {
     // Create a temporary list, to hold the burgers as they are created
     private List<Burger> burgers = new ArrayList<>();
 
+
+
+    // Create some burgers that contain those ingredients
+
+    // BigMac = Patty x2, Buns x3, cheese (x1), pickles (x3)
+
+    // Homestyle = Patty x1, Buns x2, pickles (x3), tomatoes (x2)
+
+    // Quarter Pounder = Buns x2, Patty x1, Pickles (x3), Cheese (x1)
+
+
     // if we had a MySQL connection _instead_ of an ArrayList, the create and find methods would still do the exact same thing and return the exact same data types
     // And everywhere except this exact file has no idea what storage medium we are using
 
@@ -42,3 +53,4 @@ public class BurgersDao implements Burgers {
         return burger.getId();
     }
 }
+

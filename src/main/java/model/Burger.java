@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 
 // Must implement Serializable for our Beans when using MVC
 public class Burger implements Serializable {
@@ -12,24 +13,22 @@ public class Burger implements Serializable {
     private long id;
 
     private String burgerName;
-    private int numBuns; // 3 for big mac, etc
-    private int numPickles;
-    private int numPatties;
-    private boolean cheese; // true or false
+    // private int numBuns; // 3 for big mac, etc
+    // private int numPickles;
+    // private int numPatties;
+    // private boolean cheese; // true or false
     // TODO: Segment the condiments out into their own Bean (i.e. public class Ingredient)
-    // private List<Ingredient> ingredients;
+    private List<Ingredient> ingredients;
 
     // We have to create a 'zero-argument' constructor, so that Java can reserve space in memory for this object
     public Burger() {}
 
     // constructor
-    public Burger(String burgerName, int numberBuns, int numberPickles, int numberPatties, boolean hasCheese) {
+    public Burger(String burgerName, List<Ingredient> ingredientList) {
         // set each of the local class properties, to the arguments passed into this constructor
         this.burgerName = burgerName;
-        this.numBuns = numberBuns;
-        this.numPickles = numberPickles;
-        numPatties = numberPatties;
-        cheese = hasCheese;
+        this.ingredients = ingredientList;
+
     }
 
     /**** GETTERS AND SETTERS ******/
@@ -50,37 +49,37 @@ public class Burger implements Serializable {
 
     // ctrl - enter (to get the menu where you can create getters/setters)
 
-    public int getNumBuns() {
-        return numBuns;
-    }
-
-    public void setNumBuns(int numBuns) {
-        this.numBuns = numBuns;
-    }
-
-    public int getNumPickles() {
-        return numPickles;
-    }
-
-    public void setNumPickles(int numPickles) {
-        this.numPickles = numPickles;
-    }
-
-    public int getNumPatties() {
-        return numPatties;
-    }
-
-    public void setNumPatties(int numPatties) {
-        this.numPatties = numPatties;
-    }
-
-    public boolean isCheese() {
-        return cheese;
-    }
-
-    public void setCheese(boolean cheese) {
-        this.cheese = cheese;
-    }
+    // public int getNumBuns() {
+    //     return numBuns;
+    // }
+    //
+    // public void setNumBuns(int numBuns) {
+    //     this.numBuns = numBuns;
+    // }
+    //
+    // public int getNumPickles() {
+    //     return numPickles;
+    // }
+    //
+    // public void setNumPickles(int numPickles) {
+    //     this.numPickles = numPickles;
+    // }
+    //
+    // public int getNumPatties() {
+    //     return numPatties;
+    // }
+    //
+    // public void setNumPatties(int numPatties) {
+    //     this.numPatties = numPatties;
+    // }
+    //
+    // public boolean isCheese() {
+    //     return cheese;
+    // }
+    //
+    // public void setCheese(boolean cheese) {
+    //     this.cheese = cheese;
+    // }
 
     public long getId() {
         return id;
@@ -88,5 +87,13 @@ public class Burger implements Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 }
