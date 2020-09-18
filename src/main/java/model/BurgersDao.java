@@ -10,15 +10,44 @@ public class BurgersDao implements Burgers {
     // Create a temporary list, to hold the burgers as they are created
     private List<Burger> burgers = new ArrayList<>();
 
+    public BurgersDao() {
+        // Create some burgers that contain those ingredients
 
+        // BigMac = Patty x2, Buns x3, cheese (x1), pickles (x3)
+        // Add all of the ingredients to a list
+        List<Ingredient> bigMacIngredients = new ArrayList<>();
+        bigMacIngredients.add(DaoFactory.getIngredientsDao().findById(7L)); // double patty
+        bigMacIngredients.add(DaoFactory.getIngredientsDao().findById(6L)); // buns x3
+        bigMacIngredients.add(DaoFactory.getIngredientsDao().findById(3L)); // cheese x1
+        bigMacIngredients.add(DaoFactory.getIngredientsDao().findById(1L)); // pickles x3
+        Burger bigMac = new Burger("Big Mac", bigMacIngredients);
+        bigMac.setId(1L);
+        // add it to the local array list of burgers
+        burgers.add(bigMac);
 
-    // Create some burgers that contain those ingredients
+        // Homestyle = Patty x1, Buns x2, pickles (x3), tomatoes (x2)
+        List<Ingredient> homestyleIngredients = new ArrayList<>();
+        homestyleIngredients.add(DaoFactory.getIngredientsDao().findById(4L)); //patty x1
+        homestyleIngredients.add(DaoFactory.getIngredientsDao().findById(5L)); //buns x2
+        homestyleIngredients.add(DaoFactory.getIngredientsDao().findById(1L)); //pickles
+        homestyleIngredients.add(DaoFactory.getIngredientsDao().findById(2L)); //tomatoes
+        Burger homestyle = new Burger("Homestyle", homestyleIngredients);
+        homestyle.setId(2L);
+        // add it to our local arraylist of burgers
+        burgers.add(homestyle);
 
-    // BigMac = Patty x2, Buns x3, cheese (x1), pickles (x3)
+        // Quarter Pounder = Buns x2, Patty x1, Pickles (x3), Cheese (x1)
+        List<Ingredient> qpIngredients = new ArrayList<>();
+        qpIngredients.add(DaoFactory.getIngredientsDao().findById(5L)); // buns x2
+        qpIngredients.add(DaoFactory.getIngredientsDao().findById(4L)); // single patty
+        qpIngredients.add(DaoFactory.getIngredientsDao().findById(1L)); // pickles
+        qpIngredients.add(DaoFactory.getIngredientsDao().findById(3L)); // cheese
+        Burger quarterPounder = new Burger("Quarter Pounder", qpIngredients);
+        quarterPounder.setId(3L);
+        // and of course.... add it to our local array list of burgers
+        burgers.add(quarterPounder);
 
-    // Homestyle = Patty x1, Buns x2, pickles (x3), tomatoes (x2)
-
-    // Quarter Pounder = Buns x2, Patty x1, Pickles (x3), Cheese (x1)
+    }
 
 
     // if we had a MySQL connection _instead_ of an ArrayList, the create and find methods would still do the exact same thing and return the exact same data types
@@ -53,4 +82,3 @@ public class BurgersDao implements Burgers {
         return burger.getId();
     }
 }
-
